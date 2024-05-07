@@ -18,4 +18,3 @@
           - Memory Installed: {{ ansible_memtotal_mb }} MB
           - Memory Swap: {{ ansible_swaptotal_mb }} MB
           - Processors: {{ ansible_processor_cores }}
-          - Timezone: {{ ansible_facts['tz'] }}
