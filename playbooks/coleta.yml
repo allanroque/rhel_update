@@ -31,6 +31,7 @@
           "Memory Installed": "{{ ansible_memtotal_mb }} MB",
           "Memory Swap": "{{ ansible_swaptotal_mb }} MB",
           "Processors": "{{ ansible_processor_cores }}"
+          "-------------------------------------------------------"
         }
 
     - name: Display structured system information
