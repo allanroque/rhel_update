@@ -18,3 +18,21 @@
           - Memory Installed: {{ ansible_memtotal_mb }} MB
           - Memory Swap: {{ ansible_swaptotal_mb }} MB
           - Processors: {{ ansible_processor_cores }}
+          -------------------------------------------------------
+
+    - name: Collect system information in structured format
+      set_fact:
+        system_info: {
+          "Host": "{{ ansible_hostname }}",
+          "Distribution": "{{ ansible_distribution }} {{ ansible_distribution_version }}",
+          "DNS Servers": "{{ ansible_dns.nameservers | default('Unavailable') }}",
+          "IP Address": "{{ ansible_default_ipv4.address }}",
+          "Kernel": "{{ ansible_kernel }}",
+          "Memory Installed": "{{ ansible_memtotal_mb }} MB",
+          "Memory Swap": "{{ ansible_swaptotal_mb }} MB",
+          "Processors": "{{ ansible_processor_cores }}"
+        }
+
+    - name: Display structured system information
+      debug:
+        var: system_info
